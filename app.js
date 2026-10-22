@@ -18,6 +18,11 @@
       mob.classList.toggle('widac',pod);mob.setAttribute('aria-hidden',String(!pod));
       $$('a',mob).forEach(function(a){a.tabIndex=pod?0:-1});
     },{threshold:0}).observe(cta);
+    /* w kalkulatorze pasek pokazuje bieżącą kwotę, dopóki paragon nie jest na ekranie */
+    var wKreatorze=false,paragonWidac=false;
+    var ustawKalk=function(){mob.classList.toggle('kalk',wKreatorze&&!paragonWidac)};
+    new IntersectionObserver(function(w){wKreatorze=w[0].isIntersecting;ustawKalk()},{rootMargin:'-30% 0px -30% 0px'}).observe($('#kreator'));
+    new IntersectionObserver(function(w){paragonWidac=w[0].isIntersecting;ustawKalk()},{rootMargin:'0px 0px -25% 0px'}).observe($('#wycena'));
   }
 
   /* zakładki cennika */
@@ -82,6 +87,7 @@
   function odswiez(){
     var d=+$('#dok').value;
     $('#dokWart').textContent=d>=120?'120+':d;
+    var r=$('#dok');r.style.setProperty('--p',((d-r.min)/(r.max-r.min)*100)+'%');
     var pelna=pelnaKs();
     $('#krokPodatek').hidden=pelna;
     var nr=pelna?2:3;
@@ -108,6 +114,8 @@
       var c=licz(stan.podatek);h=htmlWyniku(c);tekst=opis(c);
     }
     $('#wynik').innerHTML=h;
+    var sumaEl=$('#wynik .poz-glowna span:last-child');
+    if(sumaEl){var ms=$('#mobSuma');if(ms.textContent!==sumaEl.textContent){ms.textContent=sumaEl.textContent;ms.classList.remove('tik');void ms.offsetWidth;ms.classList.add('tik')}}
     ostatni=tekst;
     var temat='Zapytanie o obsługę księgową - '+NAZWA[stan.forma];
     var tresc='Dzień dobry,\n\nproszę o ofertę obsługi księgowej. Wycena z kalkulatora na stronie:\n\n'+tekst+'\n\nImię i nazwisko:\nTelefon:\nNIP (opcjonalnie):\n\nPozdrawiam';

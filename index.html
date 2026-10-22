@@ -9,8 +9,8 @@
 <meta name="theme-color" content="#121416">
 <link rel="icon" href="img/znak.webp">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=2">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=3">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"AccountingService","name":"MDR Biuro Rachunkowe Monika Zielińska-Buła","url":"https://www.mdr-biuro.pl/","logo":"img/logo.webp","address":{"@type":"PostalAddress","streetAddress":"ul. Okulickiego 8A","postalCode":"21-040","addressLocality":"Świdnik","addressRegion":"lubelskie","addressCountry":"PL"},"telephone":"+48571254077","email":"mdr.biurorachunkowe@gmail.com","foundingDate":"2014","openingHours":"Mo-Fr 08:00-16:00","areaServed":["Świdnik","Lublin","województwo lubelskie"],"sameAs":["https://www.facebook.com/MDRbiurorachunkowe"]}</script>
 </head>
 <body>
@@ -37,19 +37,19 @@
 
 <main id="start">
 <section class="hero">
-  <div class="hero-foto"><img src="img/hero.webp" alt="Księgowa liczy na kalkulatorze przy wydrukach z wykresami" width="768" height="561" fetchpriority="high"></div>
+  <div class="hero-foto"><img src="img/hero.webp" srcset="img/hero.webp 768w, img/hero-1344.webp 1344w" sizes="100vw" alt="Księgowa liczy na kalkulatorze przy wydrukach z wykresami" width="768" height="561" fetchpriority="high"></div>
   <div class="wrap hero-grid">
     <div class="hero-in">
       <p class="hero-tag">ul. Okulickiego 8A, Świdnik · pon.-pt. 8:00-16:00</p>
       <h1>Biuro rachunkowe MDR w Świdniku</h1>
-      <p class="lead">Od 2014 roku prowadzimy KPiR, ryczałt, pełne księgi spółek i fundacji oraz kadry i płace. Ryczałt od 170 zł netto miesięcznie, pełny cennik i kalkulator poniżej.</p>
+      <p class="lead">KPiR, ryczałt, pełne księgi spółek i fundacji, kadry i płace. Od 2014 roku, ryczałt od 170&nbsp;zł netto miesięcznie.</p>
       <div class="hero-cta">
         <a class="btn btn-g" href="#kalkulator">Policz koszt obsługi</a>
-        <a class="btn btn-o" href="#cennik">Zobacz cennik</a>
+        <a class="link-str" href="#cennik">Zobacz cennik<svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11m-4-4 4 4-4 4"/></svg></a>
       </div>
     </div>
     <figure class="hero-zdj" aria-hidden="true">
-      <img src="img/hero.webp" alt="" width="768" height="561">
+      <img src="img/hero.webp" srcset="img/hero.webp 768w, img/hero-1344.webp 1344w" sizes="(min-width:761px) 60vw, 100vw" alt="" width="768" height="561">
     </figure>
   </div>
 </section>
@@ -62,7 +62,7 @@
     </div>
     <div class="karty">
       <article class="karta foto">
-        <img src="img/u-kpir.webp" alt="Dłoń z długopisem nad paragonem i kalkulatorem" loading="lazy" width="768" height="768">
+        <div class="karta-zdj"><img src="img/u-kpir.webp" alt="Dłoń z długopisem nad paragonem i kalkulatorem" loading="lazy" width="768" height="768"></div>
         <div class="karta-in">
           <p class="karta-nr">Firmy MSP</p>
           <h3>Księga przychodów i rozchodów, ryczałt</h3>
@@ -71,7 +71,7 @@
         </div>
       </article>
       <article class="karta foto">
-        <img src="img/u-ngo.webp" alt="Laptop z wykresami na biurku" loading="lazy" width="768" height="768">
+        <div class="karta-zdj"><img src="img/u-ngo.webp" alt="Laptop z wykresami na biurku" loading="lazy" width="768" height="768"></div>
         <div class="karta-in">
           <p class="karta-nr">Spółki handlowe</p>
           <h3>Pełna księgowość spółek</h3>
@@ -80,7 +80,7 @@
         </div>
       </article>
       <article class="karta foto">
-        <img src="img/u-kadry.webp" alt="Okulary i długopis na kalkulatorze przy zestawieniu liczb" loading="lazy" width="768" height="768">
+        <div class="karta-zdj"><img src="img/u-kadry.webp" alt="Okulary i długopis na kalkulatorze przy zestawieniu liczb" loading="lazy" width="768" height="768"></div>
         <div class="karta-in">
           <p class="karta-nr">Fundacje i stowarzyszenia</p>
           <h3>Księgowość organizacji NGO</h3>
@@ -102,7 +102,7 @@
   <div class="wrap">
     <div class="nag nag-jasny">
       <h2>Kalkulator kosztu obsługi</h2>
-      <p class="nag-opis">Zaznacz formę działalności, liczbę dokumentów i pracowników. Kwota liczy się według cennika biura, a wycenę można wysłać e-mailem jako zapytanie.</p>
+      <p class="nag-opis">Kwota liczy się według cennika biura. Gotową wycenę wyślesz e-mailem jednym przyciskiem.</p>
     </div>
     <div class="kalk-grid">
       <form class="kreator" id="kreator" onsubmit="return false">
@@ -153,7 +153,7 @@
         </fieldset>
       </form>
 
-      <aside class="paragon" aria-live="polite">
+      <aside class="paragon" id="wycena" aria-live="polite">
         <div class="paragon-gora">
           <img src="img/znak.webp" alt="" width="46" height="20">
           <p>MDR Biuro Rachunkowe<br>ul. Okulickiego 8A, Świdnik</p>
@@ -310,10 +310,16 @@
 </footer>
 
 <div class="mob" aria-hidden="true">
-  <a class="btn btn-l" href="tel:+48571254077" tabindex="-1">Zadzwoń</a>
-  <a class="btn btn-g" href="#kalkulator" tabindex="-1">Policz koszt</a>
+  <div class="mob-std">
+    <a class="btn btn-l" href="tel:+48571254077" tabindex="-1"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></svg>Zadzwoń</a>
+    <a class="btn btn-g" href="#kalkulator" tabindex="-1">Policz koszt</a>
+  </div>
+  <div class="mob-kalk">
+    <p><span>Razem netto / mies.</span><b id="mobSuma">240 zł</b></p>
+    <a class="btn btn-g" href="#wycena" tabindex="-1">Zobacz wycenę</a>
+  </div>
 </div>
 
-<script src="app.js?v=2"></script>
+<script src="app.js?v=3"></script>
 </body>
 </html>
